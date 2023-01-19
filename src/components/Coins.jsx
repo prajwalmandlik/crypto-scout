@@ -5,6 +5,8 @@ import {
   Button,
   Container,
   HStack,
+  Radio,
+  RadioGroup,
 } from "@chakra-ui/react";
 import Loader from "./Loader";
 import ErrorComponet from "./ErrorComponet";
@@ -17,7 +19,7 @@ const Coins = () => {
   const [page, setPage] = useState(1);
   const [currency, setCurrency] = useState("inr");
 
-  const currencySymbol = currency === 'inr' ? "₹" : currency === "eur" ? "€" : "$"
+  const currencySymbol = currency === 'inr' ? "₹" : currency === "eur" ? "€" : "$" ;
 
   const changePage = (page) => {
     setPage(page);
@@ -33,7 +35,6 @@ const Coins = () => {
 
         setCoins(data);
         setLoading(false);
-        console.log(data);
       } catch (error) {
         setError(true);
         setLoading(false);
@@ -50,7 +51,15 @@ const Coins = () => {
         <Loader />
       ) : (
         <>
-          <HStack wrap={"wrap"}>
+          <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
+            <HStack spacing={"8"}>
+              <Radio value={"inr"}>INR</Radio>
+              <Radio value={"usd"}>USD</Radio>
+              <Radio value={"eur"}>EUR</Radio>
+            </HStack>
+          </RadioGroup>
+
+          <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
             {coins.map((i) => {
               return (
                 <CoinCard
@@ -70,6 +79,7 @@ const Coins = () => {
             {
               btns.map((item, index) =>(
             <Button
+            key={index}
               bgColor={"blackAlpha.900"}
               color={"white"}
               onClick={() => changePage(index + 1)}>
