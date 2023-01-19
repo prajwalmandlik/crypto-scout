@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ErrorComponet = (message) => {
+const Errorcomponet = ({message}) => {
   return (
     <div>
       {message}
@@ -8,4 +8,4 @@ const ErrorComponet = (message) => {
   )
 }
 
-export default ErrorComponet
+export default Errorcomponet

@@ -31,7 +31,7 @@ const Exchanges = () => {
     fetchExchanges();
   }, []);
 
-  if(error) return (<ErrorComponet message={"Error while Fetching Exchanges"}/>)
+  if(error) return (<ErrorComponet message={"error while fetching exchanges"}/>);
 
   return (
     <Container maxW={"container.xl"}>
