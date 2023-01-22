@@ -10,7 +10,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import Loader from "./Loader";
-import ErrorComponet from "./ErrorComponet";
+import Errorcomponent from "./ErrorComponent";
 
 const Exchanges = () => {
   const [exchanges, setExchanges] = useState([]);
@@ -31,7 +31,7 @@ const Exchanges = () => {
     fetchExchanges();
   }, []);
 
-  if(error) return (<ErrorComponet message={"error while fetching exchanges"}/>);
+  if(error) return (<Errorcomponent message={"error while fetching exchanges"}/>);
 
   return (
     <Container maxW={"container.xl"}>

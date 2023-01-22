@@ -9,8 +9,8 @@ import {
   RadioGroup,
 } from "@chakra-ui/react";
 import Loader from "./Loader";
-import ErrorComponet from "./ErrorComponet";
 import CoinCard from "./CoinCard";
+import Errorcomponent from "./ErrorComponent";
 
 const Coins = () => {
   const [coins, setCoins] = useState([]);
@@ -43,7 +43,7 @@ const Coins = () => {
     fetchCoins();
   }, [currency, page]);
 
-  if (error) return (<ErrorComponet message={"Error while Fetching Coins"} />);
+  if (error) return (<Errorcomponent message={"Error while Fetching Coins"} />);
 
   return (
     <Container maxW={"container.xl"}>
