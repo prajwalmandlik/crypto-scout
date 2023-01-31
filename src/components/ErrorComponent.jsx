@@ -3,7 +3,7 @@ import React from 'react'
 
 const Errorcomponent = ({message}) => {
   return (
-    <Alert status='error' position={"fixed"} bottom={"4"} left="50%" transform={"translateX(-50%)"} w={"container.lg"}>
+    <Alert status='error' position={"fixed"} bottom={"4"} left="50%" transform={"translateX(-50%)"} w={"container.lg"} className="container">
       <AlertIcon />
       {message}
     </Alert>

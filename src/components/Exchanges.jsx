@@ -34,7 +34,7 @@ const Exchanges = () => {
   if(error) return (<Errorcomponent message={"error while fetching exchanges"}/>);
 
   return (
-    <Container maxW={"container.xl"}>
+    <Container maxW={"container.xl"} className="container">
       {loading ? (
         <Loader />
       ) : (

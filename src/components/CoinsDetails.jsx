@@ -102,7 +102,7 @@ const CoinDetails = () => {
   if (error) return <Errorcomponent message={"Error While Fetching Coin"} />;
 
   return (
-    <Container maxW={"container.xl"}>
+    <Container maxW={"container.xl"} className="container">
       {loading ? (
         <Loader />
       ) : (
@@ -131,7 +131,7 @@ const CoinDetails = () => {
             </HStack>
           </RadioGroup>
 
-          <VStack spacing={"4"} p="16" alignItems={"flex-start"}>
+          <VStack spacing={"4"}  alignItems={"flex-start"}>
             <Text fontSize={"small"} alignSelf="center" opacity={0.7}>
               Last Updated On{" "}
               {Date(coin.market_data.last_updated).split("G")[0]}

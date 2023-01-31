@@ -10,7 +10,7 @@ import {
 
 export default function SmallWithNavigation() {
   return (
-    <Box
+    <Box className='container-bottom'
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container

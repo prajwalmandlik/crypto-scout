@@ -1,0 +1,109 @@
+header{
+    background-color: black;
+    color: whitesmoke;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    margin: 0 6rem;
+}
+
+.nav-logo,
+.nav-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.nav-list{
+    gap: 1.5rem;
+}
+
+.nav-logo img{
+    width: 3rem;
+    height: auto;
+}
+
+.nav-logo {
+    font-size: 1.7rem;
+}
+
+.nav-bar ul{
+    list-style: none;
+}
+
+.nav-icon{
+    font-size: 1.2rem;
+    color: whitesmoke;
+    visibility: hidden;
+}
+
+/* ================ BREAKPOINS ===============*/
+/* For large devices  */
+@media screen and (max-width: 992px) {
+    .nav-bar{
+        margin: 0 3rem;
+    }
+
+    .nav-list{
+        gap: 1rem;
+    }
+  }
+  
+  /* For medium devices */
+  @media screen and (max-width: 768px) {
+    header{
+        top:initial;
+        bottom: 0;
+    }
+
+    .nav-bar{
+        display: block;
+    }
+
+    .nav-logo {
+       display: none;
+    }
+
+    .nav-list{
+        justify-content: space-evenly;
+    }
+
+    .nav-item{
+        font-size: 0.7rem;
+    }
+
+    .nav-item-logo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-icon{
+        font-size: 1.7rem;
+        color: whitesmoke;
+        visibility: visible;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .nav-list{
+        justify-content: space-between;
+    }
+  }
+  
+  /* For small devices */
+  @media screen and (max-width: 350px) {
+  
+  }

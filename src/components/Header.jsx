@@ -1,29 +1,38 @@
-import { Button , HStack, Image, Text } from '@chakra-ui/react';
-import React from 'react';
-import { Link } from 'react-router-dom';
-// import "../style/header.scss";
+import React from "react";
+import { Link } from "react-router-dom";
+import "../style/header.css";
 import Logo from "../assets/logo.png";
 
 const Header = () => {
   return (
-    <HStack p={"2"} shadow={"base"} bgColor={"blackAlpha.900"} className="navbar" justifyContent={"space-between"} fontSize={"1rem"}>
-      <HStack>
-        <Image src={Logo} boxSize={"32px"} />
-        <Text color={"#ff9900"}> Crypto Scout</Text>
-        </HStack>
-      <HStack maxW={"200px"} justifyContent={"space-evenly"} >
-        <Button variant={"unstyled"} color={"white"}>
-              <Link to="/">Home</Link>
-          </Button>
-          <Button variant={"unstyled"} color={"white"}>
-              <Link to="/exchanges">Exchanges</Link>
-          </Button>
-          <Button variant={"unstyled"} color={"white"}>
-              <Link to="/coins">Coins</Link>
-          </Button>
-      </HStack>
-    </HStack>
-  )
-}
+    <header>
+      <nav className="nav-bar">
+        <div className="nav-logo">
+          <img src={Logo} alt="" />Crypto Scout
+        </div>
 
-export default Header
+        <div className="nav-link">
+          <ul className="nav-list">
+            <li className="nav-item">
+              <Link to="/" className="nav-item-logo"><i class="uil uil-estate nav-icon"></i>Home</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/exchanges" className="nav-item-logo"><i class="uil uil-exchange nav-icon"></i>Exchanges</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/coins" className="nav-item-logo"><i class="uil uil-bitcoin-circle nav-icon"></i>Coins</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/about" className="nav-item-logo"><i class="uil uil-user nav-icon"></i>About</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
