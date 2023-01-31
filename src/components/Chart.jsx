@@ -37,8 +37,8 @@ const Chart = ({ arr = [], currency, days }) => {
       {
         label: `Price in ${currency}`,
         data: prices,
-        borderColor: "rgb(255,99,132)",
-        backgroundColor: "rgba(255,99,132,0.5)",
+        borderColor: "red",
+        backgroundColor: "red",
       },
     ],
   };
