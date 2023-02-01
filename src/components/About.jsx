@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className="container">
+    <div className="container bgcolor">
       about
     </div>
   )

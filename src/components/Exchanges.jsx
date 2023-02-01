@@ -34,6 +34,7 @@ const Exchanges = () => {
   if(error) return (<Errorcomponent message={"error while fetching exchanges"}/>);
 
   return (
+    <div className="bgColor">
     <Container maxW={"container.xl"} className="container">
       {loading ? (
         <Loader />
@@ -55,13 +56,14 @@ const Exchanges = () => {
         </>
       )}
     </Container>
+    </div>
   );
 };
 
 const ExchangeCard = ({ name, img, rank, url }) => (
   <a href={url} target={"blank"}>
     <VStack w={"52"} shadow={"lg"} p={"8"} borderRadius={"lg"} transition={"all 0.3s"}
-    m={"4"} css={
+    m={"4"} bgColor={"white"} css={
         {
             "&:hover":{
                 transform:"scale(1.1)"

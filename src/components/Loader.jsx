@@ -3,12 +3,14 @@ import React from 'react'
 
 const Loader = () => {
   return (
+    <div className="bgColor">
     <VStack h={"90vh"} justifyContent={"center"} color={"black"}>
       <Box transform={"scale(1)"}>
         <Spinner size={"xl"} />
         </Box>
         <Text>Loading...</Text>
     </VStack>
+    </div>
   )
 }
 

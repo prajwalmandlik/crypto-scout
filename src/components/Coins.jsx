@@ -46,6 +46,7 @@ const Coins = () => {
   if (error) return (<Errorcomponent message={"Error while Fetching Coins"} />);
 
   return (
+    <div className="bgColor">
     <Container maxW={"container.xl"} className="container">
       {loading ? (
         <Loader />
@@ -91,6 +92,7 @@ const Coins = () => {
         </>
       )}
     </Container>
+    </div>
   );
 };
 
