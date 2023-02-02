@@ -21,7 +21,7 @@ const Home = () => {
     const fetchCoins = async () => {
       try {
         const { data } = await axios.get(
-          `${server}/coins/markets?vs_currency=${currency}&per_page=10`
+          `${server}/coins/markets?vs_currency=${currency}&per_page=5`
         );
 
         setCoins(data);
@@ -53,45 +53,50 @@ const Home = () => {
       </section>
 
       <section className="home-section">
-        <div className="home-coin-table">
-          {loading ? <Loader /> 
-          : 
-          <table>
-            <tr>
-              <th>#</th>
-              <th>Coins</th>
-              <th>Price</th>
-              <th>24 change</th>
-              <th>Market Cap</th>
-            </tr>
-            {coins.map((i) => {
-              return (
+        <div>
+          <h2>Top perfoming coins of day</h2>
+          <div className="home-coin-table">
+            {loading ? (
+              <Loader />
+            ) : (
+              <table>
                 <tr>
-                  <td>{i.market_cap_rank}</td>
-                  <td>
-                    <Link to={`/coin/${i.id}`}>
-                      <img src={i.image} alt="" width={"32px"} />
-                      {i.name}
-                    </Link>
-                  </td>
-                  <td>
-                    {currencySymbol}
-                    {i.current_price}
-                  </td>
-                  <td>{i.price_change_percentage_24h}</td>
-                  <td>
-                    {currencySymbol}
-                    {i.market_cap}
-                  </td>
+                  {/* <th>#</th> */}
+                  <th>Coins</th>
+                  <th>Price</th>
+                  <th>24 change</th>
+                  <th>Market Cap</th>
                 </tr>
-              );
-            })}
-          </table>
-          
-          }
+                {coins.map((i) => {
+                  return (
+                    <tr>
+                      {/* <td>{i.market_cap_rank}</td> */}
+                      <td>
+                        <Link to={`/coin/${i.id}`} className="coin-name">
+                          <img src={i.image} alt="" width={"32px"} />
+                          <div>{i.name}</div>
+                        </Link>
+                      </td>
+                      <td>
+                        {currencySymbol}
+                        {i.current_price}
+                      </td>
+                      <td>{i.price_change_percentage_24h}</td>
+                      <td>
+                        {currencySymbol}
+                        {i.market_cap}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </table>
+            )}
+          </div>
         </div>
 
-        <div className="home-coin-text">
+        {/* <div className="home-coin-text">
+          <h2>Top 10 Coins of day</h2>
+          <p></p>
           <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
             <VStack spacing={"8"}>
               <Radio value={"inr"}>INR</Radio>
@@ -99,12 +104,10 @@ const Home = () => {
               <Radio value={"eur"}>EUR</Radio>
             </VStack>
           </RadioGroup>
-        </div>
+        </div> */}
       </section>
     </div>
   );
 };
-
-
 
 export default Home;

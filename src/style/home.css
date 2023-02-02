@@ -27,9 +27,39 @@
     max-width: 556px;
 }
 
-.home-coin-table{
-    color: antiquewhite;
+/* 
+---------------- table section ---------------- 
+*/
+
+.home-section h2{
+    text-align: center;
+    font-size: 2rem;
+    padding-bottom: 2rem;
 }
+
+.home-coin-table table, th, td{
+    border-bottom: 1px solid white;
+    padding: 10px;
+    border-collapse: collapse;
+    text-align: start;
+}
+
+.home-coin-table th{
+    background-color: yellow;
+    color: black;
+}
+
+.home-coin-table th, td{
+    width: 200px;
+}
+
+.coin-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
 
 /* ================ BREAKPOINS ===============*/
 /* For large devices  */
