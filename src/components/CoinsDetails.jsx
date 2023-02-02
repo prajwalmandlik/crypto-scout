@@ -103,7 +103,7 @@ const CoinDetails = () => {
 
   return (
     <div className="bgColor">
-     <Container maxW={"container.xl"} className="container">
+     <Container maxW={"container.xl"} className="container" color={"white"}>
       {loading ? (
         <Loader />
       ) : (
@@ -118,6 +118,8 @@ const CoinDetails = () => {
                 disabled={days === i}
                 key={i}
                 onClick={() => switchChartStats(i)}
+                bgColor={"rgb(43, 43, 43)"}
+                border={"1px solid white"}
               >
                 {i}
               </Button>

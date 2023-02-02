@@ -63,7 +63,7 @@ const Exchanges = () => {
 const ExchangeCard = ({ name, img, rank, url }) => (
   <a href={url} target={"blank"}>
     <VStack w={"52"} shadow={"lg"} p={"8"} borderRadius={"lg"} transition={"all 0.3s"}
-    m={"4"} bgColor={"white"} css={
+    m={"4"} border={"1px"} color={"white"} css={
         {
             "&:hover":{
                 transform:"scale(1.1)"

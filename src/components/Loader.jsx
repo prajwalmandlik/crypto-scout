@@ -4,7 +4,7 @@ import React from 'react'
 const Loader = () => {
   return (
     <div className="bgColor">
-    <VStack h={"90vh"} justifyContent={"center"} color={"black"}>
+    <VStack h={"90vh"} justifyContent={"center"} color={"white"}>
       <Box transform={"scale(1)"}>
         <Spinner size={"xl"} />
         </Box>

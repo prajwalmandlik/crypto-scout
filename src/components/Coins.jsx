@@ -47,7 +47,7 @@ const Coins = () => {
 
   return (
     <div className="bgColor">
-    <Container maxW={"container.xl"} className="container">
+    <Container maxW={"container.xl"} className="container" color={"white"}>
       {loading ? (
         <Loader />
       ) : (
@@ -60,7 +60,7 @@ const Coins = () => {
             </HStack>
           </RadioGroup>
 
-          <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
+          <HStack wrap={"wrap"} justifyContent={"space-evenly"} >
             {coins.map((i) => {
               return (
                 <CoinCard
