@@ -11,10 +11,10 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <Header />
+      <Header/>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/coins" element={<Coins/>}/>
+        <Route path="/coins/" element={<Coins/>}/>
         <Route path="/exchanges" element={<Exchanges/>}/>
         <Route path="/coin/:id" element={<CoinsDetails/>}/>
         <Route path="/about" element={<About />} />

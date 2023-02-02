@@ -11,8 +11,8 @@ import {
 export default function SmallWithNavigation() {
   return (
     <Box className='container-bottom'
-      bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}>
+      bg={"rgb(43, 43, 43)"}
+      color={"white"}>
       <Container
         as={Stack}
         maxW={'6xl'}
@@ -27,7 +27,6 @@ export default function SmallWithNavigation() {
           <Link href={'#'}>Blog</Link>
           <Link href={'#'}>Contact</Link>
         </Stack>
-        <Text>© 2022 Chakra Templates. All rights reserved</Text>
       </Container>
     </Box>
   );

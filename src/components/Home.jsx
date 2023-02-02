@@ -1,4 +1,4 @@
-import { HStack, Radio, RadioGroup, VStack } from "@chakra-ui/react";
+import { Box, Spinner, Text, VStack } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
@@ -21,7 +21,7 @@ const Home = () => {
     const fetchCoins = async () => {
       try {
         const { data } = await axios.get(
-          `${server}/coins/markets?vs_currency=${currency}&per_page=5`
+          `${server}/coins/markets?vs_currency=${currency}&per_page=7`
         );
 
         setCoins(data);
@@ -57,7 +57,14 @@ const Home = () => {
           <h2>Top perfoming coins of day</h2>
           <div className="home-coin-table">
             {loading ? (
-              <Loader />
+              <div>
+              <VStack h={"90vh"} justifyContent={"center"} color={"white"}>
+                <Box transform={"scale(1)"}>
+                  <Spinner size={"xl"} />
+                  </Box>
+                  <Text>Loading...</Text>
+              </VStack>
+              </div>
             ) : (
               <table>
                 <tr>
@@ -65,7 +72,7 @@ const Home = () => {
                   <th>Coins</th>
                   <th>Price</th>
                   <th>24 change</th>
-                  <th>Market Cap</th>
+                  <th className="market-cap">Market Cap</th>
                 </tr>
                 {coins.map((i) => {
                   return (
@@ -81,10 +88,16 @@ const Home = () => {
                         {currencySymbol}
                         {i.current_price}
                       </td>
-                      <td>{i.price_change_percentage_24h}</td>
-                      <td>
+                      <td
+                        className={
+                          i.price_change_percentage_24h > 0 ? "green" : "red"
+                        }
+                      >
+                        {i.price_change_percentage_24h.toFixed(2)}%
+                      </td>
+                      <td className="market-cap">
                         {currencySymbol}
-                        {i.market_cap}
+                        {(i.market_cap).toExponential(2)}
                       </td>
                     </tr>
                   );

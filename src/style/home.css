@@ -33,15 +33,21 @@
 
 .home-section h2{
     text-align: center;
-    font-size: 2rem;
-    padding-bottom: 2rem;
+    font-size: 3rem;
+    margin-bottom: 3rem;
 }
 
 .home-coin-table table, th, td{
     border-bottom: 1px solid white;
-    padding: 10px;
+    padding: 1rem;
     border-collapse: collapse;
     text-align: start;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.home-coin-table{
+    margin: 0 2rem;
 }
 
 .home-coin-table th{
@@ -50,7 +56,7 @@
 }
 
 .home-coin-table th, td{
-    width: 200px;
+    width: 256px;
 }
 
 .coin-name {
@@ -60,6 +66,13 @@
     gap: 1rem;
 }
 
+.green{
+    color: rgb(44, 212, 44);
+}
+
+.red{
+    color: rgb(203, 75, 75);
+}
 
 /* ================ BREAKPOINS ===============*/
 /* For large devices  */
@@ -86,9 +99,42 @@
         font-weight: 700;
         margin-bottom: 1rem;
     }
+
+    /* 
+    ---------------- table section ---------------- 
+    */
+    .home-section h2{
+        text-align: center;
+        font-size: 2.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .home-coin-table td{
+        font-size: 1rem;
+    }
+
+    .coin-name {
+        gap: 0.5rem;
+    }
   }
   
   @media screen and (max-width: 576px) {
+      /* 
+    ---------------- table section ---------------- 
+    */
+    .home-section h2{
+        text-align: center;
+        font-size: 2rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .home-coin-table{
+        margin: 0 1rem;
+    }
+
+    .market-cap{
+        display: none;
+    }
   }
   
   /* For small devices */
