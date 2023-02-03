@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import "../style/about.css";
 
 const About = () => {
   return (
-    <div className="container bgcolor">
-      about
+    <div className="container bgColor about-section">
+      <div className="about-content">
+        about
+      </div>
     </div>
   )
 }

@@ -2,8 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../style/header.css";
 import Logo from "../assets/logo.png";
+import { useState } from "react";
 
 const Header = () => {
+  
+  const [activeLink ,setActiveLink] = useState("home");
+
+
+
+
   return (
     <header>
       <nav className="nav-bar">
@@ -14,19 +21,19 @@ const Header = () => {
         <div className="nav-link">
           <ul className="nav-list">
             <li className="nav-item">
-              <Link to="/" className="nav-item-logo"><i class="uil uil-estate nav-icon"></i>Home</Link>
+              <Link to="/" className={activeLink === "home" ? "nav-item-logo active" : "nav-item-logo "} onClick={() => {setActiveLink("home")}}><i class="uil uil-estate nav-icon"></i>Home</Link>
             </li>
 
             <li className="nav-item">
-              <Link to="/exchanges" className="nav-item-logo"><i class="uil uil-exchange nav-icon"></i>Exchanges</Link>
+              <Link to="/exchanges" className={activeLink === "exchanges" ? "nav-item-logo active" : "nav-item-logo "} onClick={() => {setActiveLink("exchanges")}}><i class="uil uil-exchange nav-icon"></i>Exchanges</Link>
             </li>
 
             <li className="nav-item">
-              <Link to="/coins" className="nav-item-logo"><i class="uil uil-bitcoin-circle nav-icon"></i>Coins</Link>
+              <Link to="/coins" className={activeLink === "coins" ? "nav-item-logo active" : "nav-item-logo "} onClick={() => {setActiveLink("coins")}}><i class="uil uil-bitcoin-circle nav-icon"></i>Coins</Link>
             </li>
 
             <li className="nav-item">
-              <Link to="/about" className="nav-item-logo"><i class="uil uil-user nav-icon"></i>About</Link>
+              <Link to="/about" className={activeLink === "about" ? "nav-item-logo active" : "nav-item-logo "} onClick={() => {setActiveLink("about")}}><i class="uil uil-user nav-icon"></i>About</Link>
             </li>
           </ul>
         </div>

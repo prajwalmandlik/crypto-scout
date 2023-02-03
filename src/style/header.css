@@ -48,11 +48,12 @@ header{
     visibility: hidden;
 }
 
-.nav-item-logo{
-    color: white;
+.active{
+    color: yellow;
 }
 
-.nav-item-logo:active{
+
+.active i {
     color: yellow;
 }
 
