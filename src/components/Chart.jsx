@@ -37,12 +37,14 @@ const Chart = ({ arr = [], currency, days }) => {
       {
         label: `Price in ${currency}`,
         data: prices,
-        borderColor: "red",
-        backgroundColor: "red",
-      },
-    ],
+        borderColor: "#ffc100",
+        backgroundColor: "#ffc100",
+        pointStyle: 'circle',
+        pointRadius: 0.5,
+        pointHoverRadius: 10
+      }
+    ]
   };
-
   return (
     <Line
       options={{

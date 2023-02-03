@@ -1,6 +1,6 @@
 .home-section{
     background-color: rgb(43, 43, 43);
-    color: white;
+    color: whitesmoke;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -10,7 +10,7 @@
 }
 
 .hero-png{
-    width: 35vw;
+    width: 35vw; 
 }
 
 .hero-text{
@@ -51,7 +51,7 @@
 }
 
 .home-coin-table th{
-    background-color: yellow;
+    background-color: #ffc100;
     color: black;
 }
 

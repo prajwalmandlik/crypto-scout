@@ -90,6 +90,7 @@ const CoinDetails = () => {
         );
         setCoin(data);
         setChartArray(chartData.prices);
+        console.log(chartData);
         setLoading(false);
       } catch (error) {
         setError(true);
@@ -108,7 +109,7 @@ const CoinDetails = () => {
         <Loader />
       ) : (
         <>
-          <Box width={"full"} borderWidth={1}>
+          <Box width={"full"} >
             <Chart arr={chartArray} currency={currencySymbol} days={days} />
           </Box>
 
