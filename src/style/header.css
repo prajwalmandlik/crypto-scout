@@ -27,6 +27,7 @@ header{
 
 .nav-list{
     gap: 1.5rem;
+    align-items: flex-start;
 }
 
 .nav-logo img{
@@ -57,6 +58,14 @@ header{
     color: #ffc100;
 }
 
+.currency-selector > .currency-item:hover{
+    color: #ffc100;
+}
+
+.nav-item-span {
+    display: none;
+}
+
 /* ================ BREAKPOINS ===============*/
 /* For large devices  */
 @media screen and (max-width: 992px) {
@@ -78,6 +87,7 @@ header{
 
     .nav-bar{
         display: block;
+        margin: 0 1rem;
     }
 
     .nav-logo {
@@ -85,7 +95,9 @@ header{
     }
 
     .nav-list{
-        justify-content: space-evenly;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        place-items: center;
         
     }
 
@@ -105,6 +117,22 @@ header{
         font-size: 1.7rem;
         color: whitesmoke;
         visibility: visible;
+    }
+
+    .currency-selector span ,.currency-selector-title{
+        display: none;
+    }
+
+    .currency-selector{
+        text-align: center;
+    }
+    .nav-list{
+        align-items: center;
+    }
+
+    .nav-item-span {
+        display: block;
+        text-align: center;
     }
   }
   

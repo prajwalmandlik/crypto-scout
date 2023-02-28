@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes ,Route} from "react-router-dom";
-import About from "./components/About";
 import Coins from "./components/Coins";
 import CoinsDetails from "./components/CoinsDetails";
 import Exchanges from "./components/Exchanges";
@@ -17,7 +16,6 @@ function App() {
         <Route path="/coins/" element={<Coins/>}/>
         <Route path="/exchanges" element={<Exchanges/>}/>
         <Route path="/coin/:id" element={<CoinsDetails/>}/>
-        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </Router>

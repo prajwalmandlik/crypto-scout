@@ -35,6 +35,7 @@ const Coins = () => {
 
         setCoins(data);
         setLoading(false);
+        // console.log(data);
       } catch (error) {
         setError(true);
         setLoading(false);

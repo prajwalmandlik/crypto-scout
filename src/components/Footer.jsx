@@ -3,9 +3,9 @@ import {
   Box,
   Container,
   Stack,
-  Text,
+  // Text,
   Link,
-  useColorModeValue,
+  // useColorModeValue,
 } from '@chakra-ui/react';
 
 export default function SmallWithNavigation() {

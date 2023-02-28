@@ -6,7 +6,7 @@ import { server } from "../index";
 import Hero from "../assets/hero-png.png";
 import "../style/home.css";
 import { Link } from "react-router-dom";
-import Loader from "./Loader";
+// import Loader from "./Loader";
 
 const Home = () => {
   const [coins, setCoins] = useState([]);
