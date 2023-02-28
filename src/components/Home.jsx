@@ -6,16 +6,15 @@ import { server } from "../index";
 import Hero from "../assets/hero-png.png";
 import "../style/home.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Errorcomponent from "./ErrorComponent";
 // import Loader from "./Loader";
 
 const Home = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [currency, setCurrency] = useState("inr");
-
-  const currencySymbol =
-    currency === "inr" ? "₹" : currency === "eur" ? "€" : "$";
+  const {currency , currencySymbol} = useSelector(state => state.custom)
 
   useEffect(() => {
     const fetchCoins = async () => {
@@ -33,6 +32,8 @@ const Home = () => {
     };
     fetchCoins();
   }, [currency]);
+
+  if (error) return <Errorcomponent message={"Error While Fetching Coin"} />;
 
   return (
     <div className=" container">
@@ -106,18 +107,6 @@ const Home = () => {
             )}
           </div>
         </div>
-
-        {/* <div className="home-coin-text">
-          <h2>Top 10 Coins of day</h2>
-          <p></p>
-          <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
-            <VStack spacing={"8"}>
-              <Radio value={"inr"}>INR</Radio>
-              <Radio value={"usd"}>USD</Radio>
-              <Radio value={"eur"}>EUR</Radio>
-            </VStack>
-          </RadioGroup>
-        </div> */}
       </section>
     </div>
   );

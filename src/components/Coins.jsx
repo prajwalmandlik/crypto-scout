@@ -5,21 +5,21 @@ import {
   Button,
   Container,
   HStack,
-  Radio,
-  RadioGroup,
 } from "@chakra-ui/react";
 import Loader from "./Loader";
 import CoinCard from "./CoinCard";
 import Errorcomponent from "./ErrorComponent";
+import { useSelector } from "react-redux";
 
 const Coins = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
-  const [currency, setCurrency] = useState("inr");
+  // const [currency, setCurrency] = useState("inr");
+  // const currencySymbol = currency === 'inr' ? "₹" : currency === "eur" ? "€" : "$" ;
 
-  const currencySymbol = currency === 'inr' ? "₹" : currency === "eur" ? "€" : "$" ;
+  const {currency , currencySymbol} = useSelector(state => state.custom)
 
   const changePage = (page) => {
     setPage(page);
@@ -53,13 +53,6 @@ const Coins = () => {
         <Loader />
       ) : (
         <>
-          <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
-            <HStack spacing={"8"}>
-              <Radio value={"inr"}>INR</Radio>
-              <Radio value={"usd"}>USD</Radio>
-              <Radio value={"eur"}>EUR</Radio>
-            </HStack>
-          </RadioGroup>
 
           <HStack wrap={"wrap"} justifyContent={"space-evenly"} >
             {coins.map((i) => {

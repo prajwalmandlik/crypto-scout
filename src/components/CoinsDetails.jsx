@@ -6,8 +6,6 @@ import {
   HStack,
   Image,
   Progress,
-  Radio,
-  RadioGroup,
   Stat,
   StatArrow,
   StatHelpText,
@@ -18,6 +16,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { server } from "../index";
 import Chart from "./Chart";
@@ -29,13 +28,11 @@ const CoinDetails = () => {
   const [coin, setCoin] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [currency, setCurrency] = useState("inr");
   const [days, setDays] = useState("24h");
   const [chartArray, setChartArray] = useState([]);
 
-  const currencySymbol =
-    currency === "inr" ? "₹" : currency === "eur" ? "€" : "$";
-
+  
+  const {currency , currencySymbol} = useSelector(state => state.custom)
   const btns = ["24h", "7d", "14d", "30d", "60d", "200d", "1y", "max"];
 
   const switchChartStats = (key) => {
@@ -90,7 +87,6 @@ const CoinDetails = () => {
         );
         setCoin(data);
         setChartArray(chartData.prices);
-        console.log(chartData);
         setLoading(false);
       } catch (error) {
         setError(true);
@@ -126,14 +122,6 @@ const CoinDetails = () => {
               </Button>
             ))}
           </HStack>
-
-          <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
-            <HStack spacing={"4"}>
-              <Radio value={"inr"}>INR</Radio>
-              <Radio value={"usd"}>USD</Radio>
-              <Radio value={"eur"}>EUR</Radio>
-            </HStack>
-          </RadioGroup>
 
           <VStack spacing={"4"}  alignItems={"flex-start"}>
             <Text fontSize={"small"} alignSelf="center" opacity={0.7}>

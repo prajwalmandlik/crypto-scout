@@ -4,11 +4,13 @@ import "../style/header.css";
 import Logo from "../assets/logo.png";
 import { useState } from "react";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState("home");
 
+  const dispatch = useDispatch();
+  const {currency , currencySymbol} = useSelector(state => state.custom)
   return (
     <header>
       <nav className="nav-bar">
@@ -72,27 +74,59 @@ const Header = () => {
                 <MenuButton
                   as={Button}
                   colorScheme="black"
-                  border={["none", "none" ,"1px solid whitesmoke"]}
+                  border={["none", "none", "1px solid whitesmoke"]}
                   color={"whitesmoke"}
                   // rightIcon={<ChevronDownIcon />}
-                  fontSize={["1.5rem","1.5rem",".9rem"]}
-                  
+                  fontSize={["1.5rem", "1.5rem", ".9rem"]}
                 >
-                  <i class="uil uil-rupee-sign"></i><span className="currency-selector-title"> INR</span>
+                  <span>{currencySymbol}</span>
+                  <span className="currency-selector-title"> {currency.toUpperCase()}</span>
                 </MenuButton>
-                <MenuList bgColor={"black"} minW={["50px" ,"50px" , "80px"]} fontSize={["1.1rem","1.1rem","1rem"]} className="currency-selector">
-                  <MenuItem bgColor={"black"} color={"whitesmoke"} className="currency-item">
+                <MenuList
+                  bgColor={"black"}
+                  minW={["50px", "50px", "80px"]}
+                  fontSize={["1.1rem", "1.1rem", "1rem"]}
+                  className="currency-selector"
+                >
+                  <MenuItem
+                    onClick={() => {
+                      dispatch({
+                        type: "changeCurrencyToINR",
+                      });
+                    }}
+                    bgColor={"black"}
+                    color={"whitesmoke"}
+                    className="currency-item"
+                  >
                     <i class="uil uil-rupee-sign"></i> <span>INR</span>
                   </MenuItem>
-                  <MenuItem bgColor={"black"} color={"whitesmoke"} className="currency-item">
+                  <MenuItem
+                  onClick={() => {
+                    dispatch({
+                      type: "changeCurrencyToEUR",
+                    });
+                  }}
+                    bgColor={"black"}
+                    color={"whitesmoke"}
+                    className="currency-item"
+                  >
                     <i class="uil uil-euro"></i> <span>EUR</span>
                   </MenuItem>
-                  <MenuItem bgColor={"black"} color={"whitesmoke"} className="currency-item">
+                  <MenuItem
+                  onClick={() => {
+                    dispatch({
+                      type: "changeCurrencyToUSD",
+                    });
+                  }}
+                    bgColor={"black"}
+                    color={"whitesmoke"}
+                    className="currency-item"
+                  >
                     <i class="uil uil-dollar-alt"></i> <span>USD</span>
                   </MenuItem>
                 </MenuList>
               </Menu>
-              <span className="nav-item-span">INR</span>
+              <span className="nav-item-span">{currency.toUpperCase()}</span>
             </li>
           </ul>
         </div>
